@@ -1,0 +1,83 @@
+/* ========== Tela inicial ========== */
+.intro {
+  position: relative;
+  min-height: 100vh; min-height: 100svh;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(61,214,245,.55), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(255,143,184,.6), transparent 42%),
+    radial-gradient(circle at 70% 90%, rgba(198,244,50,.6), transparent 45%);
+}
+.intro__content {
+  position: relative; z-index: 2;
+  flex: 1;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 48px 16px 24px;
+  max-width: 900px; margin: 0 auto;
+}
+.intro__title {
+  font-size: clamp(2.8rem, 11vw, 6.8rem);
+  font-weight: 800;
+  line-height: .95;
+  margin-bottom: .3em;
+}
+.intro__on { display: block; }
+.intro__switch {
+  display: inline-block;
+  background: var(--lime);
+  border: 4px solid var(--ink);
+  border-radius: 999px;
+  padding: 0 .35em;
+  box-shadow: 6px 6px 0 var(--ink);
+  transform: rotate(-3deg);
+  animation: pulseOn 2.4s ease-in-out infinite;
+}
+@keyframes pulseOn {
+  0%, 100% { transform: rotate(-3deg) scale(1); }
+  50% { transform: rotate(2deg) scale(1.05); }
+}
+.intro__slogan {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.2rem, 3.6vw, 1.8rem);
+  margin: .4em 0 .3em;
+}
+.intro__lead { font-size: clamp(1rem, 2.4vw, 1.2rem); max-width: 34ch; margin-bottom: 2rem; color: var(--muted); }
+
+.intro__footer {
+  position: relative; z-index: 2;
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 16px;
+  padding: 16px; text-align: center;
+  font-size: .78rem; color: var(--muted);
+}
+.intro__footer p { margin: 0; }
+.intro__footer i { vertical-align: -2px; }
+
+/* Stickers flutuantes */
+.intro__stickers { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.sticker {
+  position: absolute;
+  display: grid; place-items: center;
+  width: 64px; height: 64px;
+  font-size: 2rem;
+  border: var(--border); border-radius: 18px;
+  box-shadow: var(--shadow-sm);
+  animation: float 6s ease-in-out infinite;
+}
+.sticker--1 { top: 9%;  left: 7%;  background: var(--hot); color: var(--white); --r: -10deg; }
+.sticker--2 { top: 14%; right: 9%; background: var(--yellow); --r: 12deg; animation-delay: -1s; }
+.sticker--3 { bottom: 22%; left: 10%; background: var(--blue); --r: 8deg; animation-delay: -2s; }
+.sticker--4 { bottom: 16%; right: 8%; background: var(--purple); color: var(--white); --r: -8deg; animation-delay: -3s; }
+.sticker--5 { top: 45%; left: 3%; background: var(--orange); --r: 14deg; animation-delay: -4s; }
+.sticker--6 { top: 42%; right: 3%; background: var(--lime); --r: -14deg; animation-delay: -5s; }
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(var(--r)); }
+  50% { transform: translateY(-14px) rotate(calc(var(--r) * -1)); }
+}
+@media (max-width: 640px) {
+  .sticker { width: 46px; height: 46px; font-size: 1.4rem; border-radius: 13px; }
+  .sticker--5, .sticker--6 { display: none; }
+  .sticker--1 { top: 5%; } .sticker--2 { top: 6%; }
+  .sticker--3 { bottom: 12%; } .sticker--4 { bottom: 10%; }
+}

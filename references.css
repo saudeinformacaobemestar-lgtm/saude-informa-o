@@ -1,0 +1,7 @@
+/* ========== Referências ========== */
+.refs { padding: 40px 0 0; }
+.refs__title { font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 800; margin: 24px 0 .4em; }
+.refs__list { padding-left: 1.4em; margin: 24px 0 0; }
+.refs__list li { margin: 0 0 1em; padding-left: .3em; line-height: 1.5; font-size: .98rem; }
+.refs__list li::marker { font-family: var(--font-display); font-weight: 800; }
+.refs__list a { color: var(--blue-deep); word-break: break-word; }
